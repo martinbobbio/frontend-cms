@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react'
+import Header from './components/app/Header'
+import Clients from './components/client/Clients'
+import EditClient from './components/client/EditClient'
+import NewClient from './components/client/NewClient'
+import Products from './components/product/Products'
+import EditProduct from './components/product/EditProduct'
+import NewProduct from './components/product/NewProduct'
+import NewOrder from './components/order/NewOrder'
+import OrderClient from './components/order/OrderClient'
+import { ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import Graphics from './components/graphics/Graphics';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Session from './components/Session';
 
-function App() {
+
+
+const App = ({ refetch, session }) => {
+
+  const { getUser } = session
+  const message = getUser ? `Welcome: ${getUser.user}` : ''
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Fragment>
+        <Header session={session}/>
+        <div className="container">
+          <p className="text-right">{message}</p>
+          <Switch>
+            <Route exact path="/clients" component={Clients} />
+            <Route exact path="/client/edit/:id" component={EditClient} />
+            <Route exact path="/client/new" component={NewClient} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/product/edit/:id" component={EditProduct} />
+            <Route exact path="/product/new" component={NewProduct} />
+            <Route exact path="/order/new/:id" component={NewOrder} />
+            <Route exact path="/orders/:id" component={OrderClient} />
+            <Route exact path="/graphics" component={Graphics} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" render={() => <Login refetch={refetch}/>} />
+          </Switch>
+          <ToastContainer bodyClassName="bold text-center" />
+        </div>
+      </Fragment>
+    </Router>
+  )
 }
 
-export default App;
+const RootSession = Session(App)
+export { RootSession }

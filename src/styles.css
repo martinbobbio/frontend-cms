@@ -1,0 +1,12 @@
+.pointer{
+    cursor: pointer;
+}
+.bold{
+    font-weight: bold;
+}
+.form-control{
+    color:black !important;
+}
+.card{
+    border-width: 7px;
+}
