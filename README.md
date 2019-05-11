@@ -19,4 +19,16 @@ Prácticas llevadas a cabo integrando GraphQL conectando con Apollo Server a mi 
 
 ![Image of pagina](public/graphics.png)
 
+### Ordenes
+
+![Image of pagina](public/orders.png)
+
+### Clientes
+
+![Image of pagina](public/clients.png)
+
+### Formulario
+
+![Image of pagina](public/form.png)
+
 
