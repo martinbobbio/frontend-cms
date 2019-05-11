@@ -19,7 +19,7 @@ const HeaderNoAuth = () => (
 
 const HeaderAuth = () => (
     <Fragment>
-        <Link to="/" className="navbar-brand text-light font-weight-bold">CRM</Link>
+        <Link to="/graphics" className="navbar-brand text-light font-weight-bold">CRM</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>

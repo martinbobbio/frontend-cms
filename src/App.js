@@ -9,7 +9,7 @@ import NewProduct from './components/product/NewProduct'
 import NewOrder from './components/order/NewOrder'
 import OrderClient from './components/order/OrderClient'
 import { ToastContainer } from 'react-toastify';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Graphics from './components/graphics/Graphics';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -20,22 +20,22 @@ import Session from './components/Session';
 const App = ({ refetch, session }) => {
 
   const { getUser } = session
-  const message = getUser ? `Welcome: ${getUser.user}` : ''
+  const message = getUser ? `Welcome: ${getUser.name} - ${getUser.role}` : ''
 
   return (
     <Router>
       <Fragment>
         <Header session={session}/>
-        <div className="container">
+        <div className="container mb-5">
           <p className="text-right">{message}</p>
           <Switch>
-            <Route exact path="/clients" component={Clients} />
+            <Route exact path="/clients" render={() => <Clients session={session}/>} />
             <Route exact path="/client/edit/:id" component={EditClient} />
-            <Route exact path="/client/new" component={NewClient} />
+            <Route exact path="/client/new" render={() => <NewClient session={session}/>} />
             <Route exact path="/products" component={Products} />
             <Route exact path="/product/edit/:id" component={EditProduct} />
             <Route exact path="/product/new" component={NewProduct} />
-            <Route exact path="/order/new/:id" component={NewOrder} />
+            <Route exact path="/order/new/:id" render={() => <NewOrder session={session}/>} />
             <Route exact path="/orders/:id" component={OrderClient} />
             <Route exact path="/graphics" component={Graphics} />
             <Route exact path="/register" component={Register} />

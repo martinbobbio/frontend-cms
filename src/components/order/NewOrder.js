@@ -6,6 +6,7 @@ import Select from 'react-select'
 import Animated from 'react-select/lib/animated'
 import { NEW_ORDER } from '../../mutations'
 import { toast } from 'react-toastify'
+import { withRouter } from 'react-router-dom'
 
 
 class NewOrder extends Component {
@@ -48,8 +49,8 @@ class NewOrder extends Component {
         const { products, total } = this.state
         const { id } = this.props.match.params
         const orderInput = products.map(({ name, price, stock, ...object}) => object)
-
-        const input = { order: orderInput, total, client:id }
+        const seller = this.props.session.getUser.id
+        const input = { order: orderInput, total, client:id, seller }
         method({ variables: { input } })
         toast.success("THE ORDER WAS GENERATED", { position: toast.POSITION.BOTTOM_CENTER, closeButton: false, })
         this.props.history.push(`/orders/${id}`)
@@ -153,4 +154,4 @@ class NewOrder extends Component {
     }
 }
 
-export default NewOrder
+export default withRouter(NewOrder)

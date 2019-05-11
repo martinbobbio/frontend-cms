@@ -58,8 +58,8 @@ mutation updateOrder($input:OrderInput){
 }`
 
 export const CREATE_USER = gql`
-mutation createUser($user: String!, $password: String!){
-    createUser(user: $user, password: $password)
+mutation createUser($user: String!, $password: String!, $role: String!, $name: String!){
+    createUser(user: $user, password: $password, role: $role, name: $name)
 }`
 
 export const AUTH_USER = gql`

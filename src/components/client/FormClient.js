@@ -16,7 +16,7 @@ class FormClient extends Component {
         e.preventDefault()
         const { name, surname, company, age, type } = this.state.client
         const { emails, error } = this.state
-        const input = { name, surname, company, age: Number(age), type, emails, id }
+        const input = { name, surname, company, age: Number(age), type, emails, id, seller:this.props.idSeller }
         if (!error) {
             method({ variables: { input } })
             if (!this.props.client) {

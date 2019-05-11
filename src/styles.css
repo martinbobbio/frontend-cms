@@ -10,3 +10,29 @@
 .card{
     border-width: 7px;
 }
+.text-resalt{
+    font-weight: bold;
+    font-size:1.4rem;
+    color:white;
+    background: #2c3e50;
+    padding: .3rem
+}
+
+.container-products{
+    border-bottom:1px solid #e1e1e1
+}
+
+.border-success{
+    border-top:.5rem solid #18BC9C !important;
+    border-radius: 0px !important;
+}
+
+.border-danger{
+    border-top:.5rem solid #E74C3C !important;
+    border-radius: 0px !important;
+}
+
+.border-light{
+    border-top:.5rem solid #ecf0f1 !important;
+    border-radius: 0px !important;
+}

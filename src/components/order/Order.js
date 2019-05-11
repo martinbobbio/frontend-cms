@@ -5,6 +5,7 @@ import Loader from '../loader/Loader';
 import { toast } from 'react-toastify'
 import { UPDATE_ORDER } from '../../mutations';
 
+
 const Order = props => {
     const order = props.order
     const date = new Date(Number(order.date))
@@ -48,11 +49,7 @@ const Order = props => {
                     <p className="card-text font-weight-bold">Date: 
                         <span className="font-weight-normal"> {date.toLocaleString("es-AR")}</span>
                     </p>
-                    <p className="card-text font-weight-bold">Total: 
-                        <span className="font-weight-normal"> $  {order.total}</span>
-                    </p>
-
-                    <h3 className="card-text text-center mb-3">Products</h3>
+                    <h3 className="card-text text-center text-resalt mb-3">Products</h3>
                     { order.order.map(product => {
                         const { id } = product
                         return(
@@ -63,7 +60,7 @@ const Order = props => {
                                 const item = data.getProduct
                                 return(
                                     <Fragment>
-                                        <div className="border mb-4 p-4">
+                                        <div className="container-products mb-4 p-4">
                                             <p className="card-text">
                                                 <span className="bold">Name: </span> {item.name}
                                             </p>
@@ -80,6 +77,10 @@ const Order = props => {
                             </Query>
                         )
                     }) }
+                    <p className="card-text text-total  text-right">
+                        <span className="text-resalt">Total:</span> 
+                        <span className="font-weight-normal"> $  {order.total}</span>
+                    </p>
                 </div>
             </div>
         </div>

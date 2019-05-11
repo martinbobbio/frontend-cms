@@ -19,8 +19,13 @@ class Clients extends Component {
 
     render(){
         const { limit, offset, current } = this.state
+        
+        let id
+        const { role } = this.props.session.getUser
+        if(role === 'SELLER') id = this.props.session.getUser.id
+
         return(
-            <Query query={GET_CLIENTS} pollInterval={1000} variables={{limit, offset}}>
+            <Query query={GET_CLIENTS} pollInterval={1000} variables={{limit, offset, seller: id}}>
                 {({ loading, error, data, startPolling, stopPolling }) =>  {
                     if(loading) return <Loader/>
                     if(error) return `Error: ${error}`
