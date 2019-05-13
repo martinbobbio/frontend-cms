@@ -17,7 +17,7 @@ import Session from './components/Session';
 
 
 
-const App = ({ refetch, session }) => {
+const AppMain = ({ refetch, session }) => {
 
   const { getUser } = session
   const message = getUser ? `Welcome: ${getUser.name} - ${getUser.role}` : ''
@@ -48,5 +48,5 @@ const App = ({ refetch, session }) => {
   )
 }
 
-const RootSession = Session(App)
-export { RootSession }
+const App = Session(AppMain)
+export default App
