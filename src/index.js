@@ -12,7 +12,9 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') URL_BACKEND
 const client = new ApolloClient({
     uri: URL_BACKEND,
     fetchOptions: {
-        credentials: 'include'
+        credentials: 'include',
+        mode: "no-cors"
+
     },
     request: operation => {
         const token = localStorage.getItem("token")
