@@ -2,7 +2,7 @@
   <br>
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png" width="200">
   <br>
-  CMS - Frontend 
+  <a href="https://cms-graphql.web.app/" target="_blank">CMS - Frontend</a> 
   <br>
 </h1>
 <h4 align="center"><a target="_blank" href="https://github.com/martinbobbio/backend-cms">CMS - Backend</a></h4>
