@@ -10,8 +10,9 @@
 
 # Descripción
 
-Prácticas llevadas a cabo integrando GraphQL conectando con Apollo Server a mi servidor de NodeJS. Aplicando las últimas tecnologías de javascript, jwt, mongo.
-
+Prácticas llevadas a cabo integrando GraphQL conectando con Apollo Server a mi servidor de NodeJS
+<br>
+Tecnologias usadas: React
 
 # Capturas
 
