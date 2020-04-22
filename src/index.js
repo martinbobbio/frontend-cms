@@ -18,8 +18,6 @@ const client = new ApolloClient({
     uri: URL_BACKEND,
     fetchOptions: {
         credentials: 'include',
-        mode: "no-cors"
-
     },
     request: operation => {
         const token = localStorage.getItem("token")
