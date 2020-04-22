@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:docker": "NODE_ENV=docker node server.js",
     "build": "react-scripts build"
   },
   "eslintConfig": {
