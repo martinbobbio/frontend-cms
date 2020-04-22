@@ -7,8 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import ApolloClient, { InMemoryCache } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
-let URL_BACKEND = "https://martinbobbio-cms.herokuapp.com/graphql"
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') URL_BACKEND = "http://localhost:5000/graphql"
+let URL_BACKEND = ''
+
+if(process.env.NODE_ENV === 'development') URL_BACKEND = 'http://localhost:5000/graphql'
+else if(process.env.NODE_ENV === 'prod') URL_BACKEND = "https://martinbobbio-cms.herokuapp.com/graphql"
+else if(process.env.NODE_ENV === 'docker') URL_BACKEND = "http://192.168.99.100:8083/graphql"
+
 const client = new ApolloClient({
     uri: URL_BACKEND,
     fetchOptions: {
