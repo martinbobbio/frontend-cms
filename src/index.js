@@ -9,9 +9,10 @@ import { ApolloProvider } from 'react-apollo'
 
 let URL_BACKEND = ''
 
-if(process.env.NODE_ENV === 'development') URL_BACKEND = 'http://localhost:5000/graphql'
-else if(process.env.NODE_ENV === 'prod') URL_BACKEND = "https://martinbobbio-cms.herokuapp.com/graphql"
-else if(process.env.NODE_ENV === 'docker') URL_BACKEND = "http://192.168.99.100:8083/graphql"
+
+if(process.env.REACT_APP_STAGE === 'prod') URL_BACKEND = "https://martinbobbio-cms.herokuapp.com/graphql"
+else if(process.env.REACT_APP_STAGE === 'docker') URL_BACKEND = "http://192.168.99.100:8083/graphql"
+else URL_BACKEND = 'http://localhost:5000/graphql'
 
 const client = new ApolloClient({
     uri: URL_BACKEND,
